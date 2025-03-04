@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r dotenv/config ./src/server.js dotenv_config_path=.env",
+    "dev": "nodemon -r dotenv/config ./src/server.js dotenv_config_path=.env",
+    "table:make": "knex migrate:make --knexfile=./src/config/knexfile.js ",
+    "rb:dev": "set DOTENV_CONFIG_PATH=.env.dev&&node -r dotenv/config ./node_modules/knex/bin/cli.js migrate:rollback --knexfile ./src/config/knexfile.js",
+    "sd:dev": "node -r dotenv/config ./node_modules/knex/bin/cli.js  seed:run dotenv_config_path=.env.dev --knexfile=./src/config/knexfile.js",
+    "mg:dev": "node -r dotenv/config ./node_modules/knex/bin/cli.js  migrate:latest dotenv_config_path=.env --knexfile=./src/config/knexfile.js"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +22,13 @@
     "cron": "^4.1.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "helmet": "^8.0.0",
     "joi": "^17.13.3",
     "joi-translation-pt-br": "^0.0.10",
     "knex": "^3.1.0",
     "knex-stringcase": "^1.5.5",
     "moment": "^2.30.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.9"
   }
 }

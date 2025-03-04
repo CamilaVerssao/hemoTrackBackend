@@ -1,0 +1,13 @@
+node_modules
+
+# dotenv environment variables files
+.env
+.env*
+.env.prod
+.env.local
+.env.test
+.env.stage
+.env.dev
+
+src/uploads_temp
+uploads/*
